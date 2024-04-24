@@ -1,5 +1,14 @@
+const searchBtn = document.getElementById("button-search");
+const searchField = document.getElementById("Search-field");
+
+searchField.addEventListener("keypress", function (event) {
+  if (event.key == "Enter") searchBtn.click();
+  // if (event.keyCode == 13) searchBtn.click();
+  // event.preventDefault();
+});
+
 const searchFood = () => {
-  const searchField = document.getElementById("Search-field");
+  // const searchField = document.getElementById("Search-field");
   const searchText = searchField.value;
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
   const noSearch = document.getElementById("no-search");
@@ -21,6 +30,7 @@ const searchFood = () => {
       .then((data) => displaySearchResult(data.meals));
   }
 };
+
 const displaySearchResult = (meals) => {
   const searchResult = document.getElementById("search-result");
   //   searchResult.addEventListener("click", (event) => {
